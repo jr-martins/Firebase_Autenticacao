@@ -35,16 +35,11 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-    private Button button_Login;
-    private Button button_Cadastrar;
-
     private CardView cardView_LoginGoogle;
     private CardView cardView_LoginFacebook;
     private CardView cardView_LoginAnonimo;
-
-
-
+    private CardView cardView_LoginEmail;
+    private CardView cardView_LoginCadastrar;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -53,11 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private GoogleSignInClient googleSignInClient;
 
-
-
-
     private FirebaseAuth.AuthStateListener authStateListener;
-
 
 
     @Override
@@ -65,20 +56,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button_Login = findViewById(R.id.button_login);
-        button_Cadastrar = findViewById(R.id.buton_cadastrar);
-
-
         cardView_LoginGoogle = findViewById(R.id.cardView_LoginGoogle);
         cardView_LoginFacebook = findViewById(R.id.cardView_LoginFacebook);
         cardView_LoginAnonimo =findViewById(R.id.cardView_LoginAnonimo);
+        cardView_LoginEmail = findViewById(R.id.cardView_LoginEmail);
+        cardView_LoginCadastrar = findViewById(R.id.cardView_LoginCadastrar);
 
 
-        button_Login.setOnClickListener(this);
-        button_Cadastrar.setOnClickListener(this);
         cardView_LoginGoogle.setOnClickListener(this);
         cardView_LoginFacebook.setOnClickListener(this);
         cardView_LoginAnonimo.setOnClickListener(this);
+        cardView_LoginEmail.setOnClickListener(this);
+        cardView_LoginCadastrar.setOnClickListener(this);
 
 
         auth = FirebaseAuth.getInstance();
@@ -87,12 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         servicosAutenticacao();
         servicoFacebook();
 
-
-
     }
-
-
-
 
     //---------------------------------SERVICOS LOGIN------------------------
 
@@ -104,9 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-
                 adicionarContaFacebookaoFirebase(loginResult.getAccessToken());
-
 
             }
 
@@ -115,21 +97,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Toast.makeText(getBaseContext(),"Cancelado" , Toast.LENGTH_LONG).show();
 
-
             }
 
             @Override
             public void onError(FacebookException error) {
 
-                Toast.makeText(getBaseContext(),"Erro ao fazer login com o facebook" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),"Erro ao fazer login com o facebook" ,
+                        Toast.LENGTH_LONG).show();
 
             }
+
         });
 
-
     }
-
-
 
     private void servicosGoogle() {
 
@@ -144,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void servicosAutenticacao(){
 
-
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -153,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (user!=null){
 
-                    Toast.makeText(getBaseContext(),"Usuario "+ user.getEmail() + " está logado" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Usuario "+ user.getEmail() + " está logado" ,
+                            Toast.LENGTH_LONG).show();
 
                 }else{
 
@@ -175,8 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 signInFacebook();
 
-
-
                 break;
 
             case R.id.cardView_LoginGoogle:
@@ -185,10 +163,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.button_login:
-
+            case R.id.cardView_LoginEmail:
 
                 signInEmail();
+
                 break;
 
             case R.id.cardView_LoginAnonimo:
@@ -197,9 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-
-
-            case R.id.buton_cadastrar:
+            case R.id.cardView_LoginCadastrar:
 
                 startActivity(new Intent(this,CadastrarActivity.class));
                 break;
@@ -209,25 +185,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     //-------------------------METODOS DE LOGIN---------------------------
 
     private void signInAnonimo() {
 
         acessarContaAnonimaaoFirebase();
-
-
-
-
-
     }
 
     private void signInFacebook(){
 
-
-
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
-
     };
 
     private void signInGoogle() {
@@ -248,27 +215,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             googleSignInClient.signOut();
 
-
         }
+
     }
 
-
-
     private void signInEmail(){
-
 
         user = auth.getCurrentUser();
 
         if (user == null){
 
-
             startActivity(new Intent(this,LoginEmailActivity.class));
 
         }else{
 
-
             startActivity(new Intent(this,PrincipalActivity.class));
-
         }
 
     }
@@ -287,17 +248,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
 
-
                         } else {
 
                             String resultado = task.getException().toString();
 
                             Util.opcoesErro(getBaseContext(),resultado);
 
-
                         }
 
-                        // ...
                     }
                 });
     }
@@ -325,9 +283,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         }
 
-                        // ...
-                    }
+                                    }
                 });
+
     }
 
     private void acessarContaAnonimaaoFirebase(){
@@ -340,7 +298,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
 
-
                         } else {
 
                             String resultado = task.getException().toString();
@@ -349,11 +306,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         }
 
-                        // ...
                     }
+
                 });
-
-
 
     }
 
@@ -363,8 +318,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
-
-
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -384,7 +337,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Toast.makeText(getBaseContext(),erro,Toast.LENGTH_LONG).show();
 
-                Toast.makeText(getBaseContext(), "Erro ao logar com conta do Google",Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Erro ao logar com conta do Google",
+                        Toast.LENGTH_LONG).show();
 
             }
         }
@@ -397,7 +351,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         auth.addAuthStateListener(authStateListener);
 
     }
-
 
     @Override
     protected void onStop() {

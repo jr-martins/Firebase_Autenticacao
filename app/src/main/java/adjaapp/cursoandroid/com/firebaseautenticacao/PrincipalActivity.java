@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,13 +25,8 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-
         button_Deslogar = (Button) findViewById(R.id.button_Deslogar);
         button_Deslogar.setOnClickListener(this);
-
-
-
-
 
     }
 
@@ -45,11 +39,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
             case R.id.button_Deslogar:
 
                 FirebaseAuth.getInstance().signOut();
-
                 LoginManager.getInstance().logOut();
-
-
-
 
                 GoogleSignInOptions gso = new
                         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -60,9 +50,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 googleSignInClient = GoogleSignIn.getClient(this, gso);
                 googleSignInClient.signOut();
 
-
                 finish();
-
                 break;
         }
 

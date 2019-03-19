@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_gravity="center"
-                android:src="@drawable/login_facebook" />
+                android:src="@drawable/login_facebook"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,14 +39,10 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBranco"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
-
-
-
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView_LoginGoogle"
@@ -57,14 +53,12 @@
         app:cardElevation="7dp"
         app:cardUseCompatPadding="true"
         android:clickable="true"
-        android:focusable="true"
-        >
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
             
             <ImageView
                 android:layout_width="wrap_content"
@@ -79,25 +73,46 @@
                 android:textSize="16sp"
                 android:textAlignment="center"
                 android:textStyle="bold"/>
-
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/button_login"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView_LoginEmail"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:focusable="true">
 
-    <Button
-        android:id="@+id/buton_cadastrar"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBranco"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/email"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login com E-mail"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView_LoginAnonimo"
+        android:id="@+id/cardView_LoginCadastrar"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:foreground="?attr/selectableItemBackground"
@@ -105,8 +120,7 @@
         app:cardElevation="7dp"
         app:cardUseCompatPadding="true"
         android:clickable="true"
-        android:focusable="true"
-        >
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,14 +133,41 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pular"
-
+                android:text="Cadastrar"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
+    </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView_LoginAnonimo"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBranco"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pular"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
