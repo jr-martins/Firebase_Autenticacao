@@ -102,8 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onError(FacebookException error) {
 
-                Toast.makeText(getBaseContext(),"Erro ao fazer login com o facebook" ,
-                        Toast.LENGTH_LONG).show();
+                String resultado = error.getMessage();
+
+                Util.opcoesErro(getBaseContext(),resultado);
 
             }
 
@@ -337,13 +338,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }catch (ApiException e){
 
-                String erro = e.getMessage();
+//                Toast.makeText(getBaseContext(), "Erro ao logar com conta do Google",
+//                        Toast.LENGTH_LONG).show();
 
-                Toast.makeText(getBaseContext(),erro,Toast.LENGTH_LONG).show();
+                String resultado = e.getMessage();
 
-                Toast.makeText(getBaseContext(), "Erro ao logar com conta do Google",
-                        Toast.LENGTH_LONG).show();
+                Util.opcoesErro(getBaseContext(),resultado);
 
+                
             }
         }
     }
