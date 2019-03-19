@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "711792510229",
+    "firebase_url": "https://fir-autenticacao-61c7c.firebaseio.com",
+    "project_id": "fir-autenticacao-61c7c",
+    "storage_bucket": "fir-autenticacao-61c7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711792510229:android:32b84838f46d84cb",
+        "android_client_info": {
+          "package_name": "adjaapp.cursoandroid.com.firebaseautenticacao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711792510229-2kfo8br97emktss9neb9lbiog5k41khm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "adjaapp.cursoandroid.com.firebaseautenticacao",
+            "certificate_hash": "1570bfadcfb83a95c9b3bb5ce627081689ecbefb"
+          }
+        },
+        {
+          "client_id": "711792510229-jecjq0nijo0kj7s9rh1412nbnfeemg5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "adjaapp.cursoandroid.com.firebaseautenticacao",
+            "certificate_hash": "08b1e9167481b53c430dc3c4ec640e2fa6b1eb0c"
+          }
+        },
+        {
+          "client_id": "711792510229-nuh86rs4guhaorb80djr91l3bhhnlv57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-dtEi_11yRttdPrOzT5I8T5ejCPHQrVI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711792510229-nuh86rs4guhaorb80djr91l3bhhnlv57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
