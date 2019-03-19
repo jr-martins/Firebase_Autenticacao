@@ -225,10 +225,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (user == null){
 
+
             startActivity(new Intent(this,LoginEmailActivity.class));
 
         }else{
 
+            finish();
             startActivity(new Intent(this,PrincipalActivity.class));
         }
 
@@ -246,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
+                            finish();
                             startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
 
                         } else {
@@ -272,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         if (task.isSuccessful()) {
 
-
+                            finish();
                             startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
 
                         } else {
@@ -296,6 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
+                            finish();
                             startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
 
                         } else {

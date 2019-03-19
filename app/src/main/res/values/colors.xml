@@ -5,5 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorFacebook">#3b5998</color>
     <color name="colorBranco">#fff</color>
+    <color name="colorProgressBar">#3b5998</color>
 </resources>
+
+
 

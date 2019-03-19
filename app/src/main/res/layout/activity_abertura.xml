@@ -5,13 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBranco"
     tools:context=".AberturaActivity"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+
 
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/login"/>
+
+    <ProgressBar
+
+        android:id="@+id/progressBar_Abertura"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:max="100"
+        android:progressDrawable="@drawable/progressbar"
+
+        style="?android:attr/progressBarStyleHorizontal"/>
 
 </LinearLayout>

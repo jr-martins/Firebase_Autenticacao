@@ -51,6 +51,8 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 googleSignInClient.signOut();
 
                 finish();
+
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
                 break;
         }
 

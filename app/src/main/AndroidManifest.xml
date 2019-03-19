@@ -21,7 +21,7 @@
 
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".AberturaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".CadastrarActivity" />
         <activity android:name=".PrincipalActivity" />
-        <activity android:name=".AberturaActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginEmailActivity"></activity>
     </application>
 
