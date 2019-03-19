@@ -49,6 +49,8 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 LoginManager.getInstance().logOut();
 
 
+
+
                 GoogleSignInOptions gso = new
                         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                         .requestIdToken(getString(R.string.default_web_client_id))

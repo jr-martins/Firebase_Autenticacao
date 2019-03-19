@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private CardView cardView_LoginGoogle;
     private CardView cardView_LoginFacebook;
+    private CardView cardView_LoginAnonimo;
 
 
 
@@ -70,12 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         cardView_LoginGoogle = findViewById(R.id.cardView_LoginGoogle);
         cardView_LoginFacebook = findViewById(R.id.cardView_LoginFacebook);
+        cardView_LoginAnonimo =findViewById(R.id.cardView_LoginAnonimo);
 
 
         button_Login.setOnClickListener(this);
         button_Cadastrar.setOnClickListener(this);
         cardView_LoginGoogle.setOnClickListener(this);
         cardView_LoginFacebook.setOnClickListener(this);
+        cardView_LoginAnonimo.setOnClickListener(this);
 
 
         auth = FirebaseAuth.getInstance();
@@ -188,6 +191,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 signInEmail();
                 break;
 
+            case R.id.cardView_LoginAnonimo:
+                
+                signInAnonimo();
+
+                break;
+
+
 
             case R.id.buton_cadastrar:
 
@@ -198,7 +208,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+
     //-------------------------METODOS DE LOGIN---------------------------
+
+    private void signInAnonimo() {
+
+        acessarContaAnonimaaoFirebase();
+
+
+
+
+
+    }
 
     private void signInFacebook(){
 
@@ -306,6 +328,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // ...
                     }
                 });
+    }
+
+    private void acessarContaAnonimaaoFirebase(){
+
+        auth.signInAnonymously()
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            startActivity(new Intent(getBaseContext(),PrincipalActivity.class));
+
+
+                        } else {
+
+                            String resultado = task.getException().toString();
+
+                            Util.opcoesErro(getBaseContext(),resultado);
+
+                        }
+
+                        // ...
+                    }
+                });
+
+
+
     }
 
     //---------------------------METODOS DA ACTIVITY-----------------------------------------------
